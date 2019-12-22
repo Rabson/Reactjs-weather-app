@@ -1,19 +1,24 @@
+interface City {
+    cityName :string
+}
+
+const url = "http://13.234.94.133:8080";
+// const url = "http://localhost:8080";
+
 export const getCityList = async () => {
     try {
-        let response = await fetch(`http://localhost:3001/city`);
+        let response = await fetch(`${url}/city`);
         let data = await response.json()
         return data;
     } catch (error) {
         throw error;
     }
 }
-interface City {
-    cityName :string
-}
+
 export const getWeatherDetailsForCity = async (cityName:string) => {
     try {
         debugger
-        let response = await fetch(`http://localhost:3001/weater/${cityName}`);
+        let response = await fetch(`${url}/weater/${cityName}`);
         let data = await response.json()
         return data;
     } catch (error) {
@@ -23,7 +28,7 @@ export const getWeatherDetailsForCity = async (cityName:string) => {
 
 export const getWeatherDetailsForCitys = async (citys: City) => {
     try {
-        let response = await fetch('http://localhost:3001/weater/', {
+        let response = await fetch(`${url}/weater/`, {
             method: 'post',
             headers: { 'Content-Type': 'application/json' },
             body:JSON.stringify({ citys })
