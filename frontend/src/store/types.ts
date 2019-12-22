@@ -1,8 +1,9 @@
 import { Action } from "redux";
 
 export interface ForecastState {
-    citysList : any;
-    selectedCitys : any;
+    citysList : any[];
+    selectedCitys : any[];
+    weatherDetails: any[];
 }
 
 export enum ForecastActionType {
@@ -22,6 +23,7 @@ export interface UpdateCitys extends Action {
 
 export interface GetCityDetails extends Action {
     type: ForecastActionType.GET_CITY_DETAILS;
+    data:[]
 }
 
 export interface GetCitys extends Action {
