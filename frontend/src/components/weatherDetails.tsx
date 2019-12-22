@@ -2,6 +2,12 @@ import React from 'react';
 
 const WeatherDetails: React.FC = (props: any) => {
 
+    if (!props.location.city) {
+      return  (<div className="card">
+            No Data
+        </div>)
+    }
+
     return (
         <div className="card">
         <div className="card-header">
